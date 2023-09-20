@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="container">
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <h3>Show authories</h3>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Author</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {# default is object_list (author) must be views.py.  #}
+                        {% for author in object_list %}
+                            <tr>
+                                <td>{{ author.fullname }}</td>
+                                <td class="text-center">
+                                    <a href="{% url 'booksapp:author_update' pk=author.id %}">Update</a>
+                                    <a href="" class="text-danger">Delete</a>
+                                    <a href="" class="text-warning">Detail</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'booksapp:author_create' %}">Add a new author</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
