@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="row">
+        <div class="col-8 mx-auto">
+            <h3>403 Forbidden</h3>
+            <p class="text-danger">
+                You do not have access to this activity.
+            </p>
+            <a href="{{ request.META.HTTP_REFERER }}">Back</a>
+        </div>
+    </div>
+{% endblock %}

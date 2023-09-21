@@ -22,4 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('booksapp/', include('booksapp.urls')),
     path('', RedirectView.as_view(url='booksapp')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+handler403 = 'booksapp.views.custom403'
+handler404 = 'booksapp.views.custom404'
